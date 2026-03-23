@@ -24,10 +24,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .lang-btn.active,.lang-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(184,151,58,.08)}
 .nav-cta{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.5rem 1.2rem;text-decoration:none;white-space:nowrap;transition:all .2s}
 .nav-cta:hover{background:var(--gold);color:var(--dark)}
-.promo-banner{background:var(--terra);padding:.65rem 3rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-.promo-text{font-size:.71rem;letter-spacing:.09em;text-transform:uppercase;color:var(--cream)}
-.promo-cta{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(245,239,224,.5);color:var(--cream);padding:.28rem .8rem;text-decoration:none;transition:all .2s}
-.promo-cta:hover{background:rgba(245,239,224,.15)}
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 68% 55%,rgba(196,98,42,.16) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 15% 75%,rgba(184,151,58,.09) 0%,transparent 55%)}
 .hero-dots{position:absolute;inset:0;z-index:1;background-image:radial-gradient(circle,rgba(184,151,58,.06) 1px,transparent 1px);background-size:36px 36px}
@@ -174,23 +170,88 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
 .f-s-btn{width:34px;height:34px;border:1px solid rgba(184,151,58,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:11px;color:var(--muted);font-family:"Outfit",sans-serif;transition:all .2s}
 .f-s-btn:hover{border-color:var(--gold);color:var(--gold)}
 .footer-copy{font-size:.64rem;color:rgba(122,106,82,.45);padding-top:1.5rem;border-top:1px solid rgba(184,151,58,.06);text-align:center;letter-spacing:.07em}
+
+
+/* ── Hamburger button ── */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:transparent;border:none;cursor:pointer;padding:.3rem;width:36px;height:36px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);
+  border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── Mobile full-screen menu ── */
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:250;
+  background:rgba(26,18,8,.98);backdrop-filter:blur(16px);
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.4rem;font-family:"Cormorant Garamond",serif;font-weight:300;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--light);text-decoration:none;
+  transition:color .2s;padding:.3rem 0;border-bottom:1px solid rgba(184,151,58,.15);
+  width:60%;text-align:center}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .mobile-call{font-family:"Outfit",sans-serif;font-size:.85rem;
+  background:var(--terra);color:var(--cream);border:none;padding:.8rem 2rem;
+  margin-top:1rem;letter-spacing:.1em;width:auto}
+
 @media(max-width:960px){
-  nav{padding:1rem 1.2rem}.nav-links{display:none}.hero-img-col{display:none}
-  .hero-content{padding:5.5rem 1.5rem 4rem;max-width:100%}
-  .hero-stats{right:1.5rem;bottom:2rem;gap:1.5rem}.status-bar{left:1.5rem;bottom:2rem}
-  .about-sec{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}.about-badge-box{display:none}
-  .menu-sec{padding:4rem 1.5rem}.menu-top{flex-direction:column;align-items:flex-start}
+  /* Nav */
+  nav{padding:.85rem 1.2rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-cta{font-size:.6rem;padding:.38rem .7rem;letter-spacing:.1em}
+  .lang-btn{padding:.25rem .5rem;font-size:.6rem}
+  .lang-switcher{gap:.2rem}
+  .nav-right{gap:.5rem}
+
+
+  /* Hero */
+  .hero-img-col{display:none}
+  .hero-content{padding:5.5rem 1.5rem 3rem;max-width:100%}
+  .hero-stats{right:1.5rem;bottom:1.2rem;gap:1.2rem}
+  .stat-num{font-size:1.6rem}
+  .stat-lbl{font-size:.52rem}
+  .status-bar{left:1.5rem;bottom:5rem}
+
+  /* About */
+  .about-sec{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
+  .about-badge-box{display:none}
+
+  /* Menu */
+  .menu-sec{padding:4rem 1.5rem}
+  .menu-top{flex-direction:column;align-items:flex-start}
+
+  /* Gallery */
   .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1;height:200px}
-  .reviews-sec{padding:4rem 1.5rem}.reviews-layout{grid-template-columns:1fr;gap:2.5rem}
-  .reviews-grid{grid-template-columns:1fr}.rating-block{position:static}
-  .socials-sec{padding:4rem 1.5rem}.socials-inner{grid-template-columns:1fr;gap:2.5rem}
-  .info-sec{grid-template-columns:1fr}.info-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.1);padding:2.5rem 1.5rem}
+
+  /* Reviews */
+  .reviews-sec{padding:4rem 1.5rem}
+  .reviews-layout{grid-template-columns:1fr;gap:2.5rem}
+  .reviews-grid{grid-template-columns:1fr}
+  .rating-block{position:static}
+
+  /* Socials */
+  .socials-sec{padding:4rem 1.5rem}
+  .socials-inner{grid-template-columns:1fr;gap:2.5rem}
+
+  /* Info */
+  .info-sec{grid-template-columns:1fr}
+  .info-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.1);padding:2.5rem 1.5rem}
+
+  /* CTA / Footer */
   .cta-sec{padding:4rem 1.5rem}
-  footer{padding:2rem 1.5rem}.footer-main{flex-direction:column;gap:1.5rem}
-  .gallery-sec{padding:4rem 0 0}.gallery-header{padding:0 1.5rem 2rem}
-  .features-inner{flex-direction:column}.feature-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.08)}
-  .promo-banner{padding:.65rem 1.2rem}
+  footer{padding:2rem 1.5rem}
+  .footer-main{flex-direction:column;gap:1.5rem}
+
+  /* Gallery header */
+  .gallery-sec{padding:4rem 0 0}
+  .gallery-header{padding:0 1.5rem 2rem}
+
+  /* Features */
+  .features-inner{flex-direction:column}
+  .feature-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.08)}
 }
 [dir="rtl"] .social-card:hover{transform:translateX(-5px)}
 </style>
@@ -213,13 +274,20 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="ar">AR</button>
     </div>
-    <a href="tel:+212661690597" class="nav-cta" data-i18n="nav_call">Nous appeler</a>
+    <a href="tel:+212661690597" class="nav-cta" data-i18n="nav_call">Appeler</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-
-<div class="promo-banner">
-  <p class="promo-text" data-i18n="promo_text">🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation</p>
-  <a href="tel:+212661690597" class="promo-cta" data-i18n="promo_btn">Réserver →</a>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" data-i18n="nav_about" onclick="closeMenu()">À propos</a>
+  <a href="#menu" data-i18n="nav_menu" onclick="closeMenu()">Menu</a>
+  <a href="#gallery" data-i18n="nav_gallery" onclick="closeMenu()">Galerie</a>
+  <a href="#reviews" data-i18n="nav_reviews" onclick="closeMenu()">Avis</a>
+  <a href="#socials" data-i18n="nav_social" onclick="closeMenu()">Réseaux</a>
+  <a href="#info" data-i18n="nav_contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:+212661690597" class="mobile-call">📞 +212 6 61 69 05 97</a>
 </div>
 
 <section class="hero" id="home">
@@ -280,140 +348,21 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
 </section>
 
 <section class="menu-sec" id="menu">
-  <div class="menu-top">
-    <div>
-      <span class="sec-tag" data-i18n="menu_tag">La carte</span>
-      <h2 class="sec-title" data-i18n="menu_title">Notre <em>Menu</em> Complet</h2>
-      <p class="menu-note" data-i18n="menu_note">★ Best Seller · NEW = nouveauté · Prix en dirhams TTC</p>
+  <div class="menu-cta-wrap">
+    <span class="sec-tag" data-i18n="menu_tag">La carte</span>
+    <h2 class="sec-title" data-i18n="menu_title">Notre <em>Menu</em> Complet</h2>
+    <p class="menu-cta-desc" data-i18n="menu_desc">109 plats &amp; boissons — cocktails, tapas, grillades, desserts et bien plus.</p>
+    <div class="menu-preview">
+      <div class="preview-pill">🍸 Cocktails</div>
+      <div class="preview-pill">🥗 Salades</div>
+      <div class="preview-pill">🔥 Grillades</div>
+      <div class="preview-pill">🍞 Tapas</div>
+      <div class="preview-pill">🍮 Desserts</div>
+      <div class="preview-pill">🥂 Formules</div>
     </div>
-    <div class="cat-row" id="cat-btns">
-      <button class="cat-btn active" data-cat="all" data-i18n="cat_all">Tout</button>
-      <button class="cat-btn" data-cat="cocktails" data-i18n="cat_cocktails">Cocktails</button>
-      <button class="cat-btn" data-cat="boissons" data-i18n="cat_boissons">Boissons &amp; Mocktails</button>
-      <button class="cat-btn" data-cat="formules" data-i18n="cat_formules">Formules Lunch</button>
-      <button class="cat-btn" data-cat="crus" data-i18n="cat_crus">Les Crus</button>
-      <button class="cat-btn" data-cat="salades" data-i18n="cat_salades">Salades</button>
-      <button class="cat-btn" data-cat="bruschettas" data-i18n="cat_bruschettas">Bruschettas</button>
-      <button class="cat-btn" data-cat="fritures" data-i18n="cat_fritures">Fritures</button>
-      <button class="cat-btn" data-cat="aufour" data-i18n="cat_aufour">Au Four</button>
-      <button class="cat-btn" data-cat="plats" data-i18n="cat_plats">Poêlées &amp; Mijotés</button>
-      <button class="cat-btn" data-cat="grillades" data-i18n="cat_grillades">Planchas &amp; Grillades</button>
-      <button class="cat-btn" data-cat="accompagnements" data-i18n="cat_acc">Accompagnements</button>
-      <button class="cat-btn" data-cat="desserts" data-i18n="cat_des">Desserts</button>
-    </div>
+    <a href="menu.html" class="btn-menu-open" data-i18n="menu_open">Voir la carte complète →</a>
+    <p class="menu-note" data-i18n="menu_note">★ Best Seller · NEW = nouveauté · Prix en dirhams TTC</p>
   </div>
-  <div class="menu-grid" id="menu-grid">
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Gin Basil Smash</h3><p class="m-desc">Gin, basilic, citron, sirop légèrement sucré</p><span class="m-badge">NEW</span><span class="m-price">90 MAD</span></div>
-<div class="menu-item" data-cat="cocktails" data-popular><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Pornstar Martini</h3><p class="m-desc">Vodka, prosecco, fruit de la passion, sirop de vanille</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Corn Mule</h3><p class="m-desc">Gin, Jack Daniel's canelle, maïs infusé, jus d'ananas, citron</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Alerte à Malibu</h3><p class="m-desc">Vodka, malibu et amaretto à la citronelle, violette, jus de citron</p><span class="m-badge">NEW</span><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Frozen Aperol</h3><p class="m-desc">Gin, aperol et orange givrés, jus de citron</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Exotic Spritz</h3><p class="m-desc">Vodka, lemoncello, aperol, prosecco, liqueur d'orange, citron, fruit de la passion</p><span class="m-badge">NEW</span><span class="m-price">115 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Nuance d'Agrumes</h3><p class="m-desc">Gin, aperol, ananas, coco, citron, pamplemousse, nectar de romarin</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Jäger Sunset</h3><p class="m-desc">Gin, Jägermeister, ananas, vanille, coco, jus de citron</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Whisky Choco Fumé</h3><p class="m-desc">Jack Daniel's, liqueur de banane, sauce soja — digestif</p><span class="m-badge">NEW</span><span class="m-price">110 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Boquería</h3><p class="m-desc">Tequila, jus de citron, ananas frais, gingembre</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Julietta</h3><p class="m-desc">Bacardi Oakheart, fruit de la passion, framboises</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Mojito</h3><p class="m-desc">Rhum, menthe, citron vert, sucre de canne, soda</p><span class="m-price">65 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Mojito Fruta</h3><p class="m-desc">Mojito aux fruits frais de saison</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Negroni</h3><p class="m-desc">Gin, vermouth rouge, campari</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Margarita</h3><p class="m-desc">Tequila, triple sec, jus de citron</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Daïquiri Fraise</h3><p class="m-desc">Rhum, fraise, citron vert</p><span class="m-price">90 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Caïpirinha</h3><p class="m-desc">Cachaça, citron vert, sucre de canne</p><span class="m-price">75 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Piña Colada</h3><p class="m-desc">Rhum, ananas, coco</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Sex on the Beach</h3><p class="m-desc">Vodka, pêche, orange, grenadine</p><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Cosmopolitan</h3><p class="m-desc">Vodka, triple sec, cranberry, citron</p><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Old Fashioned</h3><p class="m-desc">Whisky, sucre, angostura bitters, orange</p><span class="m-price">75 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Amaretto Sour</h3><p class="m-desc">Amaretto, citron, blanc d'œuf</p><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="cocktails" data-popular><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Espresso Martini</h3><p class="m-desc">Vodka, espresso frais, liqueur de café</p><span class="m-price">90 MAD</span></div>
-<div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Classiques</p><h3 class="m-name">Orgasm</h3><p class="m-desc">Vodka, baileys, kahlua, crème</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Mojito Fruta</h3><p class="m-desc">Menthe, citron, fruits frais, soda</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Mojito</h3><p class="m-desc">Menthe, citron vert, sucre, soda</p><span class="m-price">55 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Piña Colada</h3><p class="m-desc">Ananas, coco, lait de coco</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Julietta</h3><p class="m-desc">Fruit de la passion, framboises, soda</p><span class="m-price">65 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Sex on the Beach</h3><p class="m-desc">Pêche, orange, grenadine, soda</p><span class="m-price">65 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Porn Star</h3><p class="m-desc">Fruit de la passion, vanille, ananas</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Citronnade</h3><p class="m-desc">Citron frais pressé, menthe, sucre</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Bora Bora</h3><p class="m-desc">Fruits exotiques, grenadine, ananas</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Banana Colada</h3><p class="m-desc">Banane, coco, ananas, lait de coco</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Smash</h3><p class="m-desc">Fruits frais écrasés, menthe, citron, soda</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Mocktails</p><h3 class="m-name">Virgin Mix Fruits</h3><p class="m-desc">Mélange de fruits frais mixés</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Boissons</p><h3 class="m-name">Jus Frais Pressé</h3><p class="m-desc">Pressé à la minute</p><span class="m-price">50 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Boissons</p><h3 class="m-name">Soda</h3><p class="m-desc">Coca-Cola, Sprite, Fanta, Ice Tea</p><span class="m-price">35 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Bières Pression</p><h3 class="m-name">Pression Spéciale</h3><p class="m-desc">25 cl / 50 cl</p><span class="m-price">35 / 60 MAD</span></div>
-<div class="menu-item" data-cat="boissons"><p class="m-cat">Bières Pression</p><h3 class="m-name">Pression Casablanca</h3><p class="m-desc">25 cl / 50 cl</p><span class="m-price">40 / 75 MAD</span></div>
-<div class="menu-item formule-card" data-cat="formules" data-popular><p class="m-cat">Formule de la Semaine · Lun–Ven 12h–16h</p><h3 class="m-name">Formule Semaine</h3><p class="m-desc">Entrée + Plat + Dessert — Un voyage gustatif différent chaque semaine. Demandez à votre serveur !</p><span class="m-price">150 MAD</span></div>
-<div class="menu-item formule-card" data-cat="formules"><p class="m-cat">Formules Rapides &amp; Gourmandes · 80 MAD · Lun–Ven 12h–16h</p><h3 class="m-name">La Stracciatella Fraîcheur</h3><p class="m-desc">Focaccia grillée beurre à l'ail, tomate basilic et stracciatella + salade + frites maison</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item formule-card" data-cat="formules"><p class="m-cat">Formules Rapides &amp; Gourmandes · 80 MAD · Lun–Ven 12h–16h</p><h3 class="m-name">La Gratinée Jambon</h3><p class="m-desc">Focaccia tomates et ail confit, jambon mozza gratiné, tombée d'oignons + salade + frites</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item formule-card" data-cat="formules" data-popular><p class="m-cat">Formules Rapides &amp; Gourmandes · 80 MAD · Lun–Ven 12h–16h</p><h3 class="m-name">Le Poulet César</h3><p class="m-desc">Bocadillo poulet grillé au charbon, sucrine, tomate, sauce césar et parmesan + salade + frites</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item formule-card" data-cat="formules"><p class="m-cat">Formules Rapides &amp; Gourmandes · 80 MAD · Lun–Ven 12h–16h</p><h3 class="m-name">Le Thon, Œuf Mayo</h3><p class="m-desc">Bocadillo thon mariné, œuf mayo citronnée et crudités + salade + frites maison</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item formule-card" data-cat="formules"><p class="m-cat">Formules Rapides &amp; Gourmandes · 80 MAD · Lun–Ven 12h–16h</p><h3 class="m-name">L'Asiatique</h3><p class="m-desc">Bocadillo tempura de poulet, sauce sweet chili, concombre et ciboule + salade + frites</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="crus"><p class="m-cat">Les Crus</p><h3 class="m-name">Carpaccio de Poulpe</h3><p class="m-desc">Aubergine fumée, pistou à la coriandre et feta</p><span class="m-badge">NEW</span><span class="m-price">110 MAD</span></div>
-<div class="menu-item" data-cat="crus"><p class="m-cat">Les Crus</p><h3 class="m-name">Anchois Marinés</h3><p class="m-desc">À l'escabèche et huile de piment</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="crus" data-popular><p class="m-cat">Les Crus</p><h3 class="m-name">Ceviche de Daurade</h3><p class="m-desc">Salsa d'avocat et mangue</p><span class="m-price">100 MAD</span></div>
-<div class="menu-item" data-cat="crus"><p class="m-cat">Les Crus</p><h3 class="m-name">Houmous Coriandre</h3><p class="m-desc">Courgettes au zaatar</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="crus"><p class="m-cat">Les Crus</p><h3 class="m-name">Carpaccio de Bœuf</h3><p class="m-desc">Aux deux oignons et parmesan</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="salades" data-popular><p class="m-cat">Les Salades</p><h3 class="m-name">Salade César &amp; Tuiles de Parmesan</h3><p class="m-desc">Notre grande classique maison</p><span class="m-price">120 MAD</span></div>
-<div class="menu-item" data-cat="salades"><p class="m-cat">Les Salades</p><h3 class="m-name">Brie Truffé, Poires Caramélisées</h3><p class="m-desc">Et noix</p><span class="m-price">140 MAD</span></div>
-<div class="menu-item" data-cat="salades"><p class="m-cat">Les Salades</p><h3 class="m-name">Burrata</h3><p class="m-desc">Salade de tomates cerises au pesto</p><span class="m-price">120 MAD</span></div>
-<div class="menu-item" data-cat="salades"><p class="m-cat">Les Salades</p><h3 class="m-name">Salade Pescatore</h3><p class="m-desc">Fruits de mer, roquette, vinaigrette agrumes</p><span class="m-price">135 MAD</span></div>
-<div class="menu-item" data-cat="salades" data-popular><p class="m-cat">Les Salades</p><h3 class="m-name">La Salade Russe « Boque'style »</h3><p class="m-desc">La classique revisitée maison</p><span class="m-price">90 MAD</span></div>
-<div class="menu-item" data-cat="bruschettas"><p class="m-cat">Les Bruschettas</p><h3 class="m-name">Guacamole au Gambas Relevé</h3><p class="m-desc">Pain à l'ail</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="bruschettas"><p class="m-cat">Les Bruschettas</p><h3 class="m-name">Tomates Cerises, Thon Mariné</h3><p class="m-desc">Et pickles</p><span class="m-price">75 MAD</span></div>
-<div class="menu-item" data-cat="bruschettas"><p class="m-cat">Les Bruschettas</p><h3 class="m-name">Crémeux de Roquefort</h3><p class="m-desc">Poires caramélisées et noix</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="bruschettas"><p class="m-cat">Les Bruschettas</p><h3 class="m-name">La Classique</h3><p class="m-desc">Tomates cerises, oignons et basilic</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="bruschettas"><p class="m-cat">Les Bruschettas</p><h3 class="m-name">Fondant de Brie</h3><p class="m-desc">Moutarde, jambon crispy et roquette</p><span class="m-price">90 MAD</span></div>
-<div class="menu-item" data-cat="fritures"><p class="m-cat">Les Fritures</p><h3 class="m-name">Croquettes de Poulet au Thym</h3><p class="m-desc">Salsa roja</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="fritures" data-popular><p class="m-cat">Les Fritures</p><h3 class="m-name">Cigares aux Fruits de Mer</h3><p class="m-desc">Charmoula, harissa et citron confit</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="fritures"><p class="m-cat">Les Fritures</p><h3 class="m-name">La Classique Tortilla Espagnole</h3><p class="m-desc">Recette traditionnelle</p><span class="m-price">65 MAD</span></div>
-<div class="menu-item" data-cat="fritures" data-popular><p class="m-cat">Les Fritures</p><h3 class="m-name">Nems de Poulet Gingembre</h3><p class="m-desc">Sauce sweet chili coriandre</p><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="fritures"><p class="m-cat">Les Fritures</p><h3 class="m-name">Croquettes de Mac'n'Cheese</h3><p class="m-desc">Tomates et basilic</p><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="fritures" data-popular><p class="m-cat">Les Fritures</p><h3 class="m-name">Rockshrimp &amp; Sauce Dynamite</h3><p class="m-desc">Crevettes croustillantes, sauce épicée</p><span class="m-price">105 MAD</span></div>
-<div class="menu-item" data-cat="fritures" data-popular><p class="m-cat">Les Fritures</p><h3 class="m-name">Popcorn de Poulet</h3><p class="m-desc">À la sweet chili</p><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="fritures" data-popular><p class="m-cat">Les Fritures</p><h3 class="m-name">Croquettes de Gambas</h3><p class="m-desc">Sauce dynamite</p><span class="m-price">75 MAD</span></div>
-<div class="menu-item" data-cat="fritures" data-popular><p class="m-cat">Les Fritures</p><h3 class="m-name">Friture de Calamars</h3><p class="m-desc">Légèrement panés, citron et aïoli</p><span class="m-price">125 MAD</span></div>
-<div class="menu-item" data-cat="fritures"><p class="m-cat">Les Fritures</p><h3 class="m-name">Frites à la Bravas</h3><p class="m-desc">Sauce bravas maison épicée</p><span class="m-price">60 MAD</span></div>
-<div class="menu-item" data-cat="aufour"><p class="m-cat">Au Four</p><h3 class="m-name">Empanadas aux Épinards &amp; Feta</h3><p class="m-desc">Salsa roja</p><span class="m-badge">NEW</span><span class="m-price">80 MAD</span></div>
-<div class="menu-item" data-cat="aufour"><p class="m-cat">Au Four</p><h3 class="m-name">Empanadas au Bœuf à la Mexicaine</h3><p class="m-desc">Crème acidulée</p><span class="m-badge">NEW</span><span class="m-price">85 MAD</span></div>
-<div class="menu-item" data-cat="aufour"><p class="m-cat">Au Four</p><h3 class="m-name">Gratin au Saint-Jacques</h3><p class="m-desc">Fruits de mer gratinés au four</p><span class="m-price">170 MAD</span></div>
-<div class="menu-item" data-cat="aufour" data-popular><p class="m-cat">Au Four</p><h3 class="m-name">Feuilleté aux Champignons</h3><p class="m-desc">Fondant de truffe</p><span class="m-price">140 MAD</span></div>
-<div class="menu-item" data-cat="aufour" data-popular><p class="m-cat">Au Four</p><h3 class="m-name">Feuilleté au Poulet</h3><p class="m-desc">Tombée de poireaux gratinée</p><span class="m-price">110 MAD</span></div>
-<div class="menu-item" data-cat="aufour"><p class="m-cat">Au Four</p><h3 class="m-name">Feuilleté aux Gambas</h3><p class="m-desc">À la crème et œufs de poisson</p><span class="m-price">140 MAD</span></div>
-<div class="menu-item" data-cat="aufour" data-popular><p class="m-cat">Au Four</p><h3 class="m-name">Roulés de Sole au Saumon</h3><p class="m-desc">Beurre blanc citronné</p><span class="m-price">195 MAD</span></div>
-<div class="menu-item" data-cat="plats"><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Duo de Cassolettes Calamars &amp; Gambas</h3><p class="m-desc">Riz à la valencienne</p><span class="m-badge">NEW</span><span class="m-price">150 MAD</span></div>
-<div class="menu-item" data-cat="plats"><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Saumon Poêlé</h3><p class="m-desc">Champignons à l'estragon et crème de brocoli</p><span class="m-badge">NEW</span><span class="m-price">180 MAD</span></div>
-<div class="menu-item" data-cat="plats"><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Poulet Pané &amp; Vraie Carbonara</h3><p class="m-desc">Au pecorino</p><span class="m-price">140 MAD</span></div>
-<div class="menu-item" data-cat="plats" data-popular><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Pavés de Daurade Grillée</h3><p class="m-desc">Purée mousseline et sauce vierge</p><span class="m-price">180 MAD</span></div>
-<div class="menu-item" data-cat="plats" data-popular><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Roulés de Lasagnes Bolo Grand-Mère</h3><p class="m-desc">Recette traditionnelle</p><span class="m-price">130 MAD</span></div>
-<div class="menu-item" data-cat="plats" data-popular><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Penne au Poulet, Gorgonzola</h3><p class="m-desc">Et fleurettes de brocoli</p><span class="m-price">140 MAD</span></div>
-<div class="menu-item" data-cat="plats"><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Linguini Noires aux Fruits de Mer</h3><p class="m-desc">Façon pil pil</p><span class="m-price">160 MAD</span></div>
-<div class="menu-item" data-cat="plats"><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Risotto aux Champignons</h3><p class="m-desc">Parfumé à la truffe et parmesan</p><span class="m-price">150 MAD</span></div>
-<div class="menu-item" data-cat="plats"><p class="m-cat">Poêlées &amp; Mijotés</p><h3 class="m-name">Nos Gambas Pil Pil</h3><p class="m-desc">Gambas à l'ail, huile d'olive et piment</p><span class="m-price">95 MAD</span></div>
-<div class="menu-item" data-cat="grillades"><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Mini-Burgers d'Espadon</h3><p class="m-desc">Avocat et salsa piquante</p><span class="m-badge">NEW</span><span class="m-price">140 MAD</span></div>
-<div class="menu-item" data-cat="grillades"><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Émincé de Bœuf à la Moutarde</h3><p class="m-desc">Pommes rissolées au romarin</p><span class="m-badge">NEW</span><span class="m-price">180 MAD</span></div>
-<div class="menu-item" data-cat="grillades"><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Brochettes d'Espadon</h3><p class="m-desc">Salade fettouche et tahina verte</p><span class="m-price">160 MAD</span></div>
-<div class="menu-item" data-cat="grillades" data-popular><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Filet de Bœuf &amp; Frites Maison</h3><p class="m-desc">Filet tendre, frites maison croustillantes</p><span class="m-price">240 MAD</span></div>
-<div class="menu-item" data-cat="grillades"><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Poulet Braisé à la Harissa</h3><p class="m-desc">Et garnitures</p><span class="m-price">130 MAD</span></div>
-<div class="menu-item" data-cat="grillades" data-popular><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Escalopines de Poulet</h3><p class="m-desc">Sauce moutarde et origan</p><span class="m-price">120 MAD</span></div>
-<div class="menu-item" data-cat="grillades" data-popular><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Trio de Mini-Burgers "Melted Cheese"</h3><p class="m-desc">Double fromage fondu, sauce maison</p><span class="m-price">115 MAD</span></div>
-<div class="menu-item" data-cat="grillades" data-popular><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Poulpe Grillé</h3><p class="m-desc">Mousseline de pommes de terre</p><span class="m-price">130 MAD</span></div>
-<div class="menu-item" data-cat="grillades"><p class="m-cat">Planchas &amp; Grillades</p><h3 class="m-name">Entrecôte, Frites Maison</h3><p class="m-desc">Et sauce chimichurri</p><span class="m-price">230 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Poêlée de Légumes de Saison</h3><p class="m-desc">Légumes frais sautés</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Petite Salade Verte Maison</h3><p class="m-desc">Vinaigrette maison</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Frites au Sel de Romarin</h3><p class="m-desc">Frites croustillantes</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Cœur de Sucrine à la César</h3><p class="m-desc">Sauce caesar maison</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Riz à la Valencienne</h3><p class="m-desc">Riz parfumé</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements" data-popular><p class="m-cat">Accompagnements</p><h3 class="m-name">Frites Truffe &amp; Parmesan</h3><p class="m-desc">La version premium</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Tombée de Champignons</h3><p class="m-desc">Amandes, câpres et pickles</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="accompagnements"><p class="m-cat">Accompagnements</p><h3 class="m-name">Frites Maison &amp; Spicy Mayo</h3><p class="m-desc">Sauce mayo épicée maison</p><span class="m-price">45 MAD</span></div>
-<div class="menu-item" data-cat="desserts"><p class="m-cat">Les Desserts</p><h3 class="m-name">Cheesecake Basque</h3><p class="m-desc">Compotée de fruits rouges</p><span class="m-badge">NEW</span><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="desserts"><p class="m-cat">Les Desserts</p><h3 class="m-name">Banoffee Pie Maison</h3><p class="m-desc">Banane, caramel, chantilly</p><span class="m-badge">NEW</span><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="desserts"><p class="m-cat">Les Desserts</p><h3 class="m-name">Brownies Façon Zing</h3><p class="m-desc">Fondant, croustillant, intense</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="desserts"><p class="m-cat">Les Desserts</p><h3 class="m-name">Crème Catalane aux Framboises</h3><p class="m-desc">Caramélisée à la minute</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="desserts"><p class="m-cat">Les Desserts</p><h3 class="m-name">Choux à la Glace Vanille</h3><p class="m-desc">Et ganache de chocolat noir</p><span class="m-price">70 MAD</span></div>
-<div class="menu-item" data-cat="desserts" data-popular><p class="m-cat">Les Desserts</p><h3 class="m-name">Terra-misu à Partager</h3><p class="m-desc">Le tiramisu Boque'style servi en pot</p><span class="m-price">95 MAD</span></div>
-  </div>
-  <p class="prices-note">★ Nos Best Sellers &nbsp;·&nbsp; NEW Nouveauté &nbsp;·&nbsp; Tous nos prix sont en dirham marocain TTC &nbsp;·&nbsp; Réservations groupes 8+ acceptées</p>
 </section>
 
 <section class="gallery-sec" id="gallery">
@@ -480,7 +429,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <a class="social-card" href="https://www.instagram.com/boqueriafina/" target="_blank" rel="noopener"><div class="social-icon s-ig">📸</div><div class="social-info"><p class="social-name">Instagram</p><p class="social-handle">@boqueriafina</p></div><span class="social-tag">27K abonnés</span><span class="social-arrow">›</span></a>
       <a class="social-card" href="https://www.facebook.com/boqueriafina/" target="_blank" rel="noopener"><div class="social-icon s-fb">📘</div><div class="social-info"><p class="social-name">Facebook</p><p class="social-handle">Boquería Fina Rabat</p></div><span class="social-tag">3 944 likes</span><span class="social-arrow">›</span></a>
       <a class="social-card" href="https://wa.me/212661690597?text=Bonjour%20Boqueria%20Fina%20!" target="_blank" rel="noopener"><div class="social-icon s-wa">💬</div><div class="social-info"><p class="social-name">WhatsApp</p><p class="social-handle">+212 6 61 69 05 97</p></div><span class="social-tag">Message direct</span><span class="social-arrow">›</span></a>
-      <a class="social-card" href="mailto:boqueriafinarabat@gmail.com"><div class="social-icon s-gm">✉️</div><div class="social-info"><p class="social-name">Email</p><p class="social-handle">boqueriafinarabat&#64;gmail.com</p></div><span class="social-tag">Contact direct</span><span class="social-arrow">›</span></a>
+      <a class="social-card" href="/cdn-cgi/l/email-protection#7b19140a0e1e09121a1d12151a091a191a0f3b1c161a121755181416"><div class="social-icon s-gm">✉️</div><div class="social-info"><p class="social-name">Email</p><p class="social-handle">boqueriafinarabat&#64;gmail.com</p></div><span class="social-tag">Contact direct</span><span class="social-arrow">›</span></a>
     </div>
   </div>
 </section>
@@ -510,7 +459,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
     <h3 class="info-title" data-i18n="info_contact_title">Nous rejoindre</h3>
     <p class="info-body">
       <a href="tel:+212661690597">+212 6 61 69 05 97</a><br><br>
-      <a href="mailto:boqueriafinarabat@gmail.com">boqueriafinarabat&#64;gmail.com</a><br><br>
+      <a href="/cdn-cgi/l/email-protection#f99b96888c9c8b90989f9097988b989b988db99e94989095d79a9694">boqueriafinarabat&#64;gmail.com</a><br><br>
       <span data-i18n="info_services">Repas sur place · Terrasse · Livraison<br>WiFi · TV · Cartes acceptées</span>
     </p>
   </div>
@@ -549,7 +498,30 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   </div>
   <div class="footer-copy">© 2025 Boquería Fina &nbsp;·&nbsp; 26 Av. Oqba Ibn Naafi, Agdal, Rabat &nbsp;·&nbsp; +212 661-690597</div>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── HAMBURGER MENU ─────────────────────────────────── */
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var btn  = document.getElementById('hamburger');
+  var isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 /* ── STATUS OUVERT / FERMÉ ─────────────────────────── */
 var currentLang = 'fr';
 
@@ -637,9 +609,7 @@ var T = {
 fr:{
   nav_about:'À propos',nav_menu:'Menu',nav_gallery:'Galerie',
   nav_reviews:'Avis',nav_social:'Réseaux',nav_contact:'Contact',nav_call:'Nous appeler',
-  promo_text:'🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation',
-  promo_btn:'Réserver →',
-  hero_badge:'Agdal · Rabat, Maroc — Depuis 2020',hero_sub:'Saveurs du Monde',
+    hero_badge:'Agdal · Rabat, Maroc — Depuis 2020',hero_sub:'Saveurs du Monde',
   hero_desc:"Tapas espagnoles, saveurs méditerranéennes et influences internationales — dans une atmosphère tamisée et chaleureuse au cœur d'Agdal.",
   hero_cta1:'Voir le menu',hero_cta2:'Horaires &amp; adresse →',
   stat_rating:'Note Google',stat_reviews:'Avis clients',stat_followers:'Followers Insta',
@@ -654,6 +624,8 @@ fr:{
   pill_es:'🇪🇸 Espagnol',pill_ma:'🇲🇦 Marocain',pill_it:'🇮🇹 Italien',pill_as:'🌊 Méditerranéen',
   menu_tag:'La carte',menu_title:'Notre <em>Menu</em> Complet',
   menu_note:'★ Best Seller · NEW = nouveauté · Prix en dirhams TTC',
+    menu_desc:'109 plats &amp; boissons — cocktails, tapas, grillades, desserts et bien plus.',
+    menu_open:'Voir la carte complète →',
   cat_all:'Tout',cat_cocktails:'Cocktails',cat_boissons:'Boissons &amp; Mocktails',
   cat_formules:'Formules Lunch',cat_crus:'Les Crus',cat_salades:'Salades',
   cat_bruschettas:'Bruschettas',cat_fritures:'Fritures',cat_aufour:'Au Four',
@@ -680,9 +652,7 @@ fr:{
 en:{
   nav_about:'About',nav_menu:'Menu',nav_gallery:'Gallery',
   nav_reviews:'Reviews',nav_social:'Social',nav_contact:'Contact',nav_call:'Call us',
-  promo_text:'🎉 <strong>Happy Hour</strong> — Discounted cocktails 6–8pm &nbsp;·&nbsp; Groups 8+ by reservation',
-  promo_btn:'Reserve →',
-  hero_badge:'Agdal · Rabat, Morocco — Since 2020',hero_sub:'World Flavors',
+    hero_badge:'Agdal · Rabat, Morocco — Since 2020',hero_sub:'World Flavors',
   hero_desc:'Spanish tapas, Mediterranean flavors and international influences — in a warm, intimate atmosphere in the heart of Agdal.',
   hero_cta1:'See the menu',hero_cta2:'Hours &amp; address →',
   stat_rating:'Google Rating',stat_reviews:'Reviews',stat_followers:'Insta followers',
@@ -697,6 +667,8 @@ en:{
   pill_es:'🇪🇸 Spanish',pill_ma:'🇲🇦 Moroccan',pill_it:'🇮🇹 Italian',pill_as:'🌊 Mediterranean',
   menu_tag:'Menu',menu_title:'Our Complete <em>Menu</em>',
   menu_note:'★ Best Seller · NEW = new item · All prices in Moroccan dirhams',
+    menu_desc:'109 dishes &amp; drinks — cocktails, tapas, grills, desserts and more.',
+    menu_open:'View full menu →',
   cat_all:'All',cat_cocktails:'Cocktails',cat_boissons:'Drinks &amp; Mocktails',
   cat_formules:'Set menus',cat_crus:'Raw starters',cat_salades:'Salads',
   cat_bruschettas:'Bruschettas',cat_fritures:'Fritters',cat_aufour:'Baked',
@@ -723,9 +695,7 @@ en:{
 ar:{
   nav_about:'عن المطعم',nav_menu:'القائمة',nav_gallery:'معرض',
   nav_reviews:'آراء',nav_social:'التواصل',nav_contact:'اتصل',nav_call:'اتصل بنا',
-  promo_text:'🎉 <strong>ساعة سعيدة</strong> — كوكتيلات بأسعار مخفضة 18h–20h &nbsp;·&nbsp; المجموعات 8+ بحجز',
-  promo_btn:'احجز →',
-  hero_badge:'أكدال · الرباط، المغرب — منذ 2020',hero_sub:'نكهات العالم',
+    hero_badge:'أكدال · الرباط، المغرب — منذ 2020',hero_sub:'نكهات العالم',
   hero_desc:'تاباس إسبانية، نكهات متوسطية وتأثيرات دولية — في أجواء دافئة في قلب أكدال.',
   hero_cta1:'عرض القائمة',hero_cta2:'المواعيد والعنوان ←',
   stat_rating:'تقييم جوجل',stat_reviews:'آراء',stat_followers:'متابعو إنستغرام',
@@ -787,7 +757,7 @@ document.querySelectorAll('.lang-btn').forEach(function(btn) {
   });
 });
 
-/* ── INIT ───────────────────────────────────────────────── */
+/* ── INIT ───────────────────────────────────────── */
 updateStatus();
 setInterval(updateStatus,30000);
 </script>
