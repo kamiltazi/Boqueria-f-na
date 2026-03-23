@@ -24,10 +24,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .lang-btn.active,.lang-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(184,151,58,.08)}
 .nav-cta{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.5rem 1.2rem;text-decoration:none;white-space:nowrap;transition:all .2s}
 .nav-cta:hover{background:var(--gold);color:var(--dark)}
-.promo-banner{background:var(--terra);padding:.65rem 3rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-.promo-text{font-size:.71rem;letter-spacing:.09em;text-transform:uppercase;color:var(--cream)}
-.promo-cta{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(245,239,224,.5);color:var(--cream);padding:.28rem .8rem;text-decoration:none;transition:all .2s}
-.promo-cta:hover{background:rgba(245,239,224,.15)}
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 68% 55%,rgba(196,98,42,.16) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 15% 75%,rgba(184,151,58,.09) 0%,transparent 55%)}
 .hero-dots{position:absolute;inset:0;z-index:1;background-image:radial-gradient(circle,rgba(184,151,58,.06) 1px,transparent 1px);background-size:36px 36px}
@@ -174,6 +170,39 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
 .f-s-btn{width:34px;height:34px;border:1px solid rgba(184,151,58,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:11px;color:var(--muted);font-family:"Outfit",sans-serif;transition:all .2s}
 .f-s-btn:hover{border-color:var(--gold);color:var(--gold)}
 .footer-copy{font-size:.64rem;color:rgba(122,106,82,.45);padding-top:1.5rem;border-top:1px solid rgba(184,151,58,.06);text-align:center;letter-spacing:.07em}
+
+/* ── PROMO BANNER ── */
+.promo-banner{
+  background:var(--terra);
+  padding:.6rem 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.2rem;
+  flex-wrap:wrap;
+  text-align:center;
+}
+.promo-text{
+  font-size:.72rem;
+  color:var(--cream);
+  font-family:"Outfit",sans-serif;
+  font-weight:300;
+  letter-spacing:.04em;
+  line-height:1.5;
+}
+.promo-cta{
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  border:1px solid rgba(245,239,224,.55);
+  color:var(--cream);
+  padding:.28rem .85rem;
+  text-decoration:none;
+  white-space:nowrap;
+  flex-shrink:0;
+  transition:background .2s;
+}
+.promo-cta:hover{background:rgba(245,239,224,.15)}
 /* ── Hamburger button ── */
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
   background:transparent;border:none;cursor:pointer;padding:.3rem;width:36px;height:36px;flex-shrink:0}
@@ -208,10 +237,12 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   .nav-right{gap:.5rem}
 
   /* Promo banner */
-  .promo-banner{padding:.6rem 1rem;gap:.8rem;flex-direction:column;align-items:center}
-  .promo-text{font-size:.65rem;letter-spacing:.05em;text-align:center}
-  .promo-cta{font-size:.63rem;padding:.25rem .7rem}
+  .promo-banner{padding:.55rem 1rem;gap:.5rem}
+  .promo-text{font-size:.67rem;line-height:1.45}
+  .promo-cta{font-size:.62rem;padding:.22rem .65rem}
 
+
+  /* Promo banner */
   /* Hero */
   .hero-img-col{display:none}
   .hero-content{padding:5.5rem 1.5rem 5rem;max-width:100%}
@@ -295,10 +326,9 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   <a href="#info" data-i18n="nav_contact" onclick="closeMenu()">Contact</a>
   <a href="tel:+212661690597" class="mobile-call">📞 +212 6 61 69 05 97</a>
 </div>
-
 <div class="promo-banner">
-  <p class="promo-text" data-i18n="promo_text">🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation</p>
-  <a href="tel:+212661690597" class="promo-cta" data-i18n="promo_btn">Réserver →</a>
+  <p class="promo-text">🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits chaque soir 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation</p>
+  <a href="tel:+212661690597" class="promo-cta">Réserver →</a>
 </div>
 
 <section class="hero" id="home">
