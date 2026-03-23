@@ -174,23 +174,90 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
 .f-s-btn{width:34px;height:34px;border:1px solid rgba(184,151,58,.2);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:11px;color:var(--muted);font-family:"Outfit",sans-serif;transition:all .2s}
 .f-s-btn:hover{border-color:var(--gold);color:var(--gold)}
 .footer-copy{font-size:.64rem;color:rgba(122,106,82,.45);padding-top:1.5rem;border-top:1px solid rgba(184,151,58,.06);text-align:center;letter-spacing:.07em}
+/* ── Hamburger button ── */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:transparent;border:none;cursor:pointer;padding:.3rem;width:36px;height:36px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);
+  border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ── Mobile full-screen menu ── */
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:250;
+  background:rgba(26,18,8,.98);backdrop-filter:blur(16px);
+  flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.4rem;font-family:"Cormorant Garamond",serif;font-weight:300;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--light);text-decoration:none;
+  transition:color .2s;padding:.3rem 0;border-bottom:1px solid rgba(184,151,58,.15);
+  width:60%;text-align:center}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .mobile-call{font-family:"Outfit",sans-serif;font-size:.85rem;
+  background:var(--terra);color:var(--cream);border:none;padding:.8rem 2rem;
+  margin-top:1rem;letter-spacing:.1em;width:auto}
+
 @media(max-width:960px){
-  nav{padding:1rem 1.2rem}.nav-links{display:none}.hero-img-col{display:none}
-  .hero-content{padding:5.5rem 1.5rem 4rem;max-width:100%}
-  .hero-stats{right:1.5rem;bottom:1.5rem;gap:1.5rem}.status-bar{left:1.5rem;bottom:5.5rem}
-  .about-sec{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}.about-badge-box{display:none}
-  .menu-sec{padding:4rem 1.5rem}.menu-top{flex-direction:column;align-items:flex-start}
+  /* Nav */
+  nav{padding:.85rem 1.2rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-cta{font-size:.6rem;padding:.38rem .7rem;letter-spacing:.1em}
+  .lang-btn{padding:.25rem .5rem;font-size:.6rem}
+  .lang-switcher{gap:.2rem}
+  .nav-right{gap:.5rem}
+
+  /* Promo banner */
+  .promo-banner{padding:.6rem 1rem;gap:.8rem;flex-direction:column;align-items:center}
+  .promo-text{font-size:.65rem;letter-spacing:.05em;text-align:center}
+  .promo-cta{font-size:.63rem;padding:.25rem .7rem}
+
+  /* Hero */
+  .hero-img-col{display:none}
+  .hero-content{padding:5.5rem 1.5rem 5rem;max-width:100%}
+  .hero-stats{right:1.5rem;bottom:1.5rem;gap:1.2rem}
+  .stat-num{font-size:1.6rem}
+  .stat-lbl{font-size:.52rem}
+  .status-bar{left:1.5rem;bottom:6rem}
+
+  /* About */
+  .about-sec{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
+  .about-badge-box{display:none}
+
+  /* Menu */
+  .menu-sec{padding:4rem 1.5rem}
+  .menu-top{flex-direction:column;align-items:flex-start}
+
+  /* Gallery */
   .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1;height:200px}
-  .reviews-sec{padding:4rem 1.5rem}.reviews-layout{grid-template-columns:1fr;gap:2.5rem}
-  .reviews-grid{grid-template-columns:1fr}.rating-block{position:static}
-  .socials-sec{padding:4rem 1.5rem}.socials-inner{grid-template-columns:1fr;gap:2.5rem}
-  .info-sec{grid-template-columns:1fr}.info-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.1);padding:2.5rem 1.5rem}
+
+  /* Reviews */
+  .reviews-sec{padding:4rem 1.5rem}
+  .reviews-layout{grid-template-columns:1fr;gap:2.5rem}
+  .reviews-grid{grid-template-columns:1fr}
+  .rating-block{position:static}
+
+  /* Socials */
+  .socials-sec{padding:4rem 1.5rem}
+  .socials-inner{grid-template-columns:1fr;gap:2.5rem}
+
+  /* Info */
+  .info-sec{grid-template-columns:1fr}
+  .info-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.1);padding:2.5rem 1.5rem}
+
+  /* CTA / Footer */
   .cta-sec{padding:4rem 1.5rem}
-  footer{padding:2rem 1.5rem}.footer-main{flex-direction:column;gap:1.5rem}
-  .gallery-sec{padding:4rem 0 0}.gallery-header{padding:0 1.5rem 2rem}
-  .features-inner{flex-direction:column}.feature-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.08)}
-  .promo-banner{padding:.65rem 1.2rem}
+  footer{padding:2rem 1.5rem}
+  .footer-main{flex-direction:column;gap:1.5rem}
+
+  /* Gallery header */
+  .gallery-sec{padding:4rem 0 0}
+  .gallery-header{padding:0 1.5rem 2rem}
+
+  /* Features */
+  .features-inner{flex-direction:column}
+  .feature-block{border-right:none;border-bottom:1px solid rgba(184,151,58,.08)}
 }
 [dir="rtl"] .social-card:hover{transform:translateX(-5px)}
 </style>
@@ -213,9 +280,21 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="ar">AR</button>
     </div>
-    <a href="tel:+212661690597" class="nav-cta" data-i18n="nav_call">Nous appeler</a>
+    <a href="tel:+212661690597" class="nav-cta" data-i18n="nav_call">Appeler</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" data-i18n="nav_about" onclick="closeMenu()">À propos</a>
+  <a href="#menu" data-i18n="nav_menu" onclick="closeMenu()">Menu</a>
+  <a href="#gallery" data-i18n="nav_gallery" onclick="closeMenu()">Galerie</a>
+  <a href="#reviews" data-i18n="nav_reviews" onclick="closeMenu()">Avis</a>
+  <a href="#socials" data-i18n="nav_social" onclick="closeMenu()">Réseaux</a>
+  <a href="#info" data-i18n="nav_contact" onclick="closeMenu()">Contact</a>
+  <a href="tel:+212661690597" class="mobile-call">📞 +212 6 61 69 05 97</a>
+</div>
 
 <div class="promo-banner">
   <p class="promo-text" data-i18n="promo_text">🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation</p>
@@ -480,7 +559,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <a class="social-card" href="https://www.instagram.com/boqueriafina/" target="_blank" rel="noopener"><div class="social-icon s-ig">📸</div><div class="social-info"><p class="social-name">Instagram</p><p class="social-handle">@boqueriafina</p></div><span class="social-tag">27K abonnés</span><span class="social-arrow">›</span></a>
       <a class="social-card" href="https://www.facebook.com/boqueriafina/" target="_blank" rel="noopener"><div class="social-icon s-fb">📘</div><div class="social-info"><p class="social-name">Facebook</p><p class="social-handle">Boquería Fina Rabat</p></div><span class="social-tag">3 944 likes</span><span class="social-arrow">›</span></a>
       <a class="social-card" href="https://wa.me/212661690597?text=Bonjour%20Boqueria%20Fina%20!" target="_blank" rel="noopener"><div class="social-icon s-wa">💬</div><div class="social-info"><p class="social-name">WhatsApp</p><p class="social-handle">+212 6 61 69 05 97</p></div><span class="social-tag">Message direct</span><span class="social-arrow">›</span></a>
-      <a class="social-card" href="/cdn-cgi/l/email-protection#f2909d838797809b93949b9c938093909386b2959f939b9edc919d9f"><div class="social-icon s-gm">✉️</div><div class="social-info"><p class="social-name">Email</p><p class="social-handle">boqueriafinarabat&#64;gmail.com</p></div><span class="social-tag">Contact direct</span><span class="social-arrow">›</span></a>
+      <a class="social-card" href="mailto:boqueriafinarabat@gmail.com"><div class="social-icon s-gm">✉️</div><div class="social-info"><p class="social-name">Email</p><p class="social-handle">boqueriafinarabat&#64;gmail.com</p></div><span class="social-tag">Contact direct</span><span class="social-arrow">›</span></a>
     </div>
   </div>
 </section>
@@ -510,7 +589,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
     <h3 class="info-title" data-i18n="info_contact_title">Nous rejoindre</h3>
     <p class="info-body">
       <a href="tel:+212661690597">+212 6 61 69 05 97</a><br><br>
-      <a href="/cdn-cgi/l/email-protection#1f7d706e6a7a6d767e7976717e6d7e7d7e6b5f78727e7673317c7072">boqueriafinarabat&#64;gmail.com</a><br><br>
+      <a href="mailto:boqueriafinarabat@gmail.com">boqueriafinarabat&#64;gmail.com</a><br><br>
       <span data-i18n="info_services">Repas sur place · Terrasse · Livraison<br>WiFi · TV · Cartes acceptées</span>
     </p>
   </div>
@@ -549,7 +628,30 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   </div>
   <div class="footer-copy">© 2025 Boquería Fina &nbsp;·&nbsp; 26 Av. Oqba Ibn Naafi, Agdal, Rabat &nbsp;·&nbsp; +212 661-690597</div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+/* ── HAMBURGER MENU ─────────────────────────────────── */
+function toggleMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var btn  = document.getElementById('hamburger');
+  var isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var btn  = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 /* ── STATUS OUVERT / FERMÉ ─────────────────────────── */
 var currentLang = 'fr';
 
