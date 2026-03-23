@@ -30,7 +30,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .hero-img-col{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden;z-index:2}
 .hero-img-col img{width:100%;height:100%;object-fit:cover;opacity:.5;filter:contrast(1.05)}
 .hero-img-col::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--dark) 0%,rgba(26,18,8,.3) 50%,transparent 100%)}
-.hero-content{position:relative;z-index:3;padding:4rem 3rem 4rem;max-width:680px}
+.hero-content{position:relative;z-index:3;padding:6rem 3rem 4rem;max-width:680px}
 .hero-badge{display:inline-flex;align-items:center;gap:.7rem;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:1.4rem}
 .hero-badge::before{content:"";display:block;width:38px;height:1px;background:var(--terra)}
 .hero-title{font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,7.5vw,6.8rem);font-weight:300;line-height:.93;margin-bottom:1.6rem}
@@ -171,41 +171,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
 .f-s-btn:hover{border-color:var(--gold);color:var(--gold)}
 .footer-copy{font-size:.64rem;color:rgba(122,106,82,.45);padding-top:1.5rem;border-top:1px solid rgba(184,151,58,.06);text-align:center;letter-spacing:.07em}
 
-/* ── PROMO BANNER ── */
-.promo-banner{
-  background:var(--terra);
-  padding:.6rem 1.5rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:1.2rem;
-  flex-wrap:wrap;
-  text-align:center;
-  position:relative;
-  z-index:200;
-  margin-top:62px;
-}
-.promo-text{
-  font-size:.72rem;
-  color:var(--cream);
-  font-family:"Outfit",sans-serif;
-  font-weight:300;
-  letter-spacing:.04em;
-  line-height:1.5;
-}
-.promo-cta{
-  font-size:.68rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  border:1px solid rgba(245,239,224,.55);
-  color:var(--cream);
-  padding:.28rem .85rem;
-  text-decoration:none;
-  white-space:nowrap;
-  flex-shrink:0;
-  transition:background .2s;
-}
-.promo-cta:hover{background:rgba(245,239,224,.15)}
+
 /* ── Hamburger button ── */
 .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;
   background:transparent;border:none;cursor:pointer;padding:.3rem;width:36px;height:36px;flex-shrink:0}
@@ -239,20 +205,14 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   .lang-switcher{gap:.2rem}
   .nav-right{gap:.5rem}
 
-  /* Promo banner */
-  .promo-banner{margin-top:56px;padding:.55rem 1rem;gap:.5rem}
-  .promo-text{font-size:.67rem;line-height:1.45}
-  .promo-cta{font-size:.62rem;padding:.22rem .65rem}
 
-
-  /* Promo banner */
   /* Hero */
   .hero-img-col{display:none}
-  .hero-content{padding:5.5rem 1.5rem 5rem;max-width:100%}
-  .hero-stats{right:1.5rem;bottom:1.5rem;gap:1.2rem}
+  .hero-content{padding:5.5rem 1.5rem 3rem;max-width:100%}
+  .hero-stats{right:1.5rem;bottom:1.2rem;gap:1.2rem}
   .stat-num{font-size:1.6rem}
   .stat-lbl{font-size:.52rem}
-  .status-bar{left:1.5rem;bottom:6rem}
+  .status-bar{left:1.5rem;bottom:5rem}
 
   /* About */
   .about-sec{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem}
@@ -328,10 +288,6 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   <a href="#socials" data-i18n="nav_social" onclick="closeMenu()">Réseaux</a>
   <a href="#info" data-i18n="nav_contact" onclick="closeMenu()">Contact</a>
   <a href="tel:+212661690597" class="mobile-call">📞 +212 6 61 69 05 97</a>
-</div>
-<div class="promo-banner">
-  <p class="promo-text">🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits chaque soir 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation</p>
-  <a href="tel:+212661690597" class="promo-cta">Réserver →</a>
 </div>
 
 <section class="hero" id="home">
@@ -772,9 +728,7 @@ var T = {
 fr:{
   nav_about:'À propos',nav_menu:'Menu',nav_gallery:'Galerie',
   nav_reviews:'Avis',nav_social:'Réseaux',nav_contact:'Contact',nav_call:'Nous appeler',
-  promo_text:'🎉 <strong>Happy Hour</strong> — Cocktails à prix réduits 18h–20h &nbsp;·&nbsp; Groupes 8+ sur réservation',
-  promo_btn:'Réserver →',
-  hero_badge:'Agdal · Rabat, Maroc — Depuis 2020',hero_sub:'Saveurs du Monde',
+    hero_badge:'Agdal · Rabat, Maroc — Depuis 2020',hero_sub:'Saveurs du Monde',
   hero_desc:"Tapas espagnoles, saveurs méditerranéennes et influences internationales — dans une atmosphère tamisée et chaleureuse au cœur d'Agdal.",
   hero_cta1:'Voir le menu',hero_cta2:'Horaires &amp; adresse →',
   stat_rating:'Note Google',stat_reviews:'Avis clients',stat_followers:'Followers Insta',
@@ -815,9 +769,7 @@ fr:{
 en:{
   nav_about:'About',nav_menu:'Menu',nav_gallery:'Gallery',
   nav_reviews:'Reviews',nav_social:'Social',nav_contact:'Contact',nav_call:'Call us',
-  promo_text:'🎉 <strong>Happy Hour</strong> — Discounted cocktails 6–8pm &nbsp;·&nbsp; Groups 8+ by reservation',
-  promo_btn:'Reserve →',
-  hero_badge:'Agdal · Rabat, Morocco — Since 2020',hero_sub:'World Flavors',
+    hero_badge:'Agdal · Rabat, Morocco — Since 2020',hero_sub:'World Flavors',
   hero_desc:'Spanish tapas, Mediterranean flavors and international influences — in a warm, intimate atmosphere in the heart of Agdal.',
   hero_cta1:'See the menu',hero_cta2:'Hours &amp; address →',
   stat_rating:'Google Rating',stat_reviews:'Reviews',stat_followers:'Insta followers',
@@ -858,9 +810,7 @@ en:{
 ar:{
   nav_about:'عن المطعم',nav_menu:'القائمة',nav_gallery:'معرض',
   nav_reviews:'آراء',nav_social:'التواصل',nav_contact:'اتصل',nav_call:'اتصل بنا',
-  promo_text:'🎉 <strong>ساعة سعيدة</strong> — كوكتيلات بأسعار مخفضة 18h–20h &nbsp;·&nbsp; المجموعات 8+ بحجز',
-  promo_btn:'احجز →',
-  hero_badge:'أكدال · الرباط، المغرب — منذ 2020',hero_sub:'نكهات العالم',
+    hero_badge:'أكدال · الرباط، المغرب — منذ 2020',hero_sub:'نكهات العالم',
   hero_desc:'تاباس إسبانية، نكهات متوسطية وتأثيرات دولية — في أجواء دافئة في قلب أكدال.',
   hero_cta1:'عرض القائمة',hero_cta2:'المواعيد والعنوان ←',
   stat_rating:'تقييم جوجل',stat_reviews:'آراء',stat_followers:'متابعو إنستغرام',
