@@ -133,8 +133,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .social-cards{display:flex;flex-direction:column;gap:.65rem}
 .social-card{display:flex;align-items:center;gap:1.2rem;background:rgba(26,18,8,.5);border:1px solid rgba(184,151,58,.12);padding:1.05rem 1.35rem;text-decoration:none;transition:all .22s}
 .social-card:hover{border-color:rgba(184,151,58,.35);background:rgba(26,18,8,.9);transform:translateX(5px)}
-.social-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.s-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}.s-fb{background:#1877F2}.s-wa{background:#25D366}.s-gm{background:#EA4335}
+.social-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.social-icon svg{width:100%;height:100%;display:block}
+.s-ig,.s-fb,.s-wa{background:transparent}
+.s-gm{background:#fff;border-radius:8px}
 .social-info{flex:1}
 .social-name{font-size:.81rem;font-weight:500;color:var(--cream);margin-bottom:.13rem}
 .social-handle{font-size:.69rem;color:var(--muted);letter-spacing:.07em}
@@ -355,7 +357,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <p class="menu-note" data-i18n="menu_note">★ Best Seller · NEW = nouveauté · Prix en dirhams TTC</p>
     </div>
     <div class="cat-row" id="cat-btns">
-      <button class="cat-btn active" data-cat="cocktails" data-i18n="cat_cocktails">Cocktails</button>
+      <button class="cat-btn" data-cat="cocktails" data-i18n="cat_cocktails">Cocktails</button>
       <button class="cat-btn" data-cat="boissons" data-i18n="cat_boissons">Boissons &amp; Mocktails</button>
       <button class="cat-btn" data-cat="formules" data-i18n="cat_formules">Formules Lunch</button>
       <button class="cat-btn" data-cat="crus" data-i18n="cat_crus">Les Crus</button>
@@ -369,7 +371,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <button class="cat-btn" data-cat="desserts" data-i18n="cat_des">Desserts</button>
     </div>
   </div>
-  <div class="menu-grid" id="menu-grid">
+  <div class="menu-grid" id="menu-grid" style="display:none">
 <div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Gin Basil Smash</h3><p class="m-desc">Gin, basilic, citron, sirop légèrement sucré</p><span class="m-badge">NEW</span><span class="m-price">90 MAD</span></div>
 <div class="menu-item" data-cat="cocktails" data-popular><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Pornstar Martini</h3><p class="m-desc">Vodka, prosecco, fruit de la passion, sirop de vanille</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
 <div class="menu-item" data-cat="cocktails"><p class="m-cat">Cocktails Signatures</p><h3 class="m-name">Corn Mule</h3><p class="m-desc">Gin, Jack Daniel's canelle, maïs infusé, jus d'ananas, citron</p><span class="m-badge">NEW</span><span class="m-price">95 MAD</span></div>
@@ -480,9 +482,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
 <div class="menu-item" data-cat="desserts"><p class="m-cat">Les Desserts</p><h3 class="m-name">Choux à la Glace Vanille</h3><p class="m-desc">Et ganache de chocolat noir</p><span class="m-price">70 MAD</span></div>
 <div class="menu-item" data-cat="desserts" data-popular><p class="m-cat">Les Desserts</p><h3 class="m-name">Terra-misu à Partager</h3><p class="m-desc">Le tiramisu Boque'style servi en pot</p><span class="m-price">95 MAD</span></div>
   </div>
-  </div>
-  </div>
-  <p class="prices-note">★ Nos Best Sellers &nbsp;·&nbsp; NEW Nouveauté &nbsp;·&nbsp; Tous nos prix sont en dirham marocain TTC &nbsp;·&nbsp; Réservations groupes 8+</p>
+  <p class="prices-note" id="menu-prices-note" style="display:none">★ Nos Best Sellers &nbsp;·&nbsp; NEW Nouveauté &nbsp;·&nbsp; Tous nos prix en dirham marocain TTC &nbsp;·&nbsp; Réservations groupes 8+</p>
 </section>
 
 <section class="gallery-sec" id="gallery">
@@ -546,11 +546,54 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
       <p data-i18n="soc_p2">Taguez-nous <strong style="color:var(--gold)">#BoqueriaFina</strong> !</p>
     </div>
     <div class="social-cards">
-      <a class="social-card" href="https://www.instagram.com/boqueriafina/" target="_blank" rel="noopener"><div class="social-icon s-ig">📸</div><div class="social-info"><p class="social-name">Instagram</p><p class="social-handle">@boqueriafina</p></div><span class="social-tag">27K abonnés</span><span class="social-arrow">›</span></a>
-      <a class="social-card" href="https://www.facebook.com/boqueriafina/" target="_blank" rel="noopener"><div class="social-icon s-fb">📘</div><div class="social-info"><p class="social-name">Facebook</p><p class="social-handle">Boquería Fina Rabat</p></div><span class="social-tag">3 944 likes</span><span class="social-arrow">›</span></a>
-      <a class="social-card" href="https://wa.me/212661690597?text=Bonjour%20Boqueria%20Fina%20!" target="_blank" rel="noopener"><div class="social-icon s-wa">💬</div><div class="social-info"><p class="social-name">WhatsApp</p><p class="social-handle">+212 6 61 69 05 97</p></div><span class="social-tag">Message direct</span><span class="social-arrow">›</span></a>
-      <a class="social-card" href="mailto:boqueriafinarabat@gmail.com"><div class="social-icon s-gm">✉️</div><div class="social-info"><p class="social-name">Email</p><p class="social-handle">boqueriafinarabat&#64;gmail.com</p></div><span class="social-tag">Contact direct</span><span class="social-arrow">›</span></a>
-    </div>
+      <a class="social-card" href="https://www.instagram.com/boqueriafina/" target="_blank" rel="noopener">
+        <div class="social-icon s-ig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+  <defs>
+    <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+      <stop offset="0%" stop-color="#fdf497"/>
+      <stop offset="5%" stop-color="#fdf497"/>
+      <stop offset="45%" stop-color="#fd5949"/>
+      <stop offset="60%" stop-color="#d6249f"/>
+      <stop offset="90%" stop-color="#285AEB"/>
+    </radialGradient>
+  </defs>
+  <rect width="24" height="24" rx="5.5" fill="url(#ig-grad)"/>
+  <rect x="2.4" y="2.4" width="19.2" height="19.2" rx="4.5" fill="none" stroke="white" stroke-width="1.8"/>
+  <circle cx="12" cy="12" r="4.2" fill="none" stroke="white" stroke-width="1.8"/>
+  <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+</svg></div>
+        <div class="social-info"><p class="social-name">Instagram</p><p class="social-handle">@boqueriafina</p></div>
+        <span class="social-tag">27K abonnés</span><span class="social-arrow">›</span>
+      </a>
+      <a class="social-card" href="https://www.facebook.com/boqueriafina/" target="_blank" rel="noopener">
+        <div class="social-icon s-fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+  <rect width="24" height="24" rx="5.5" fill="#1877F2"/>
+  <path d="M16 8h-2c-.6 0-1 .4-1 1v2h3l-.4 3H13v7h-3v-7H8v-3h2V9c0-2.2 1.8-4 4-4h2v3z" fill="white"/>
+</svg></div>
+        <div class="social-info"><p class="social-name">Facebook</p><p class="social-handle">Boquería Fina Rabat</p></div>
+        <span class="social-tag">3 944 likes</span><span class="social-arrow">›</span>
+      </a>
+      <a class="social-card" href="https://wa.me/212661690597?text=Bonjour%20Boqueria%20Fina%20!" target="_blank" rel="noopener">
+        <div class="social-icon s-wa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+  <rect width="24" height="24" rx="5.5" fill="#25D366"/>
+  <path d="M12 4C7.6 4 4 7.6 4 12c0 1.5.4 2.9 1.1 4.1L4 20l4-1.1C9.2 19.6 10.6 20 12 20c4.4 0 8-3.6 8-8s-3.6-8-8-8zm3.9 11.1c-.2.5-1 1-1.4 1-.4.1-.8.1-1.2 0-1.1-.3-2.8-1.3-3.9-3.1-.5-.8-.7-1.5-.7-2.1 0-.7.3-1.3.7-1.7.2-.2.4-.3.6-.3h.5c.2 0 .3.1.4.4.2.4.6 1.5.6 1.6.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.1-.3.3-.4.4-.1.1-.1.3 0 .4.4.7 1 1.3 1.7 1.7.2.1.3.1.5 0 .2-.2.4-.5.6-.7.1-.2.3-.2.5-.1l1.5.7c.2.1.3.2.4.3.1.4-.1 1-.2 1.5z" fill="white"/>
+</svg></div>
+        <div class="social-info"><p class="social-name">WhatsApp</p><p class="social-handle">+212 6 61 69 05 97</p></div>
+        <span class="social-tag">Message direct</span><span class="social-arrow">›</span>
+      </a>
+      <a class="social-card" href="mailto:boqueriafinarabat&#64;gmail.com">
+        <div class="social-icon s-gm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="44" height="44">
+  <rect width="24" height="24" rx="5.5" fill="white"/>
+  <path d="M4 7.5h16v10H4z" fill="#F6F6F6"/>
+  <path d="M4 7.5v10l4-3.5V11L4 7.5z" fill="#4285F4"/>
+  <path d="M20 7.5v10l-4-3.5V11l4-3.5z" fill="#34A853"/>
+  <path d="M4 7.5l8 6 8-6H4z" fill="#EA4335"/>
+  <path d="M8 14l4 3 4-3v-3l-4 3-4-3v3z" fill="#FBBC05"/>
+</svg></div>
+        <div class="social-info"><p class="social-name">Email</p><p class="social-handle">boqueriafinarabat&#64;gmail.com</p></div>
+        <span class="social-tag">Contact direct</span><span class="social-arrow">›</span>
+      </a>
+    </div></div>
   </div>
 </section>
 
@@ -579,7 +622,7 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
     <h3 class="info-title" data-i18n="info_contact_title">Nous rejoindre</h3>
     <p class="info-body">
       <a href="tel:+212661690597">+212 6 61 69 05 97</a><br><br>
-      <a href="mailto:boqueriafinarabat@gmail.com">boqueriafinarabat&#64;gmail.com</a><br><br>
+      <a href="mailto:boqueriafinarabat&#64;gmail.com">boqueriafinarabat&#64;gmail.com</a><br><br>
       <span data-i18n="info_services">Repas sur place · Terrasse · Livraison<br>WiFi · TV · Cartes acceptées</span>
     </p>
   </div>
@@ -618,8 +661,10 @@ footer{background:var(--dark);border-top:1px solid rgba(184,151,58,.08);padding:
   </div>
   <div class="footer-copy">© 2025 Boquería Fina &nbsp;·&nbsp; 26 Av. Oqba Ibn Naafi, Agdal, Rabat &nbsp;·&nbsp; +212 661-690597</div>
 </footer>
+
 <script>
-/* ── HAMBURGER MENU ─────────────────────────────────── */
+
+/* ── HAMBURGER MENU ──────────────────────────────── */
 function toggleMenu() {
   var menu = document.getElementById('mobile-menu');
   var btn  = document.getElementById('hamburger');
@@ -642,35 +687,89 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-/* ── STATUS OUVERT / FERMÉ ─────────────────────────── */
-var currentLang = 'fr';
+/* ── MENU FILTER ─────────────────────────────────── */
+function isLunchTime() {
+  var now = new Date();
+  var day = now.getDay();   // 0=dim 1=lun 5=ven 6=sam
+  var hr  = now.getHours();
+  return (day >= 1 && day <= 5) && (hr >= 12 && hr < 16);
+}
 
+function reorderTabs() {
+  var row = document.getElementById('cat-btns');
+  if (!row) return;
+  var btnC = row.querySelector('[data-cat="cocktails"]');
+  var btnF = row.querySelector('[data-cat="formules"]');
+  if (!btnC || !btnF) return;
+  if (isLunchTime()) {
+    row.insertBefore(btnF, row.firstChild);
+  } else {
+    row.insertBefore(btnC, row.firstChild);
+  }
+}
+
+function showCategory(cat) {
+  var grid = document.getElementById('menu-grid');
+  var note = document.getElementById('menu-prices-note');
+  document.querySelectorAll('.cat-btn').forEach(function(b) {
+    b.classList.toggle('active', b.getAttribute('data-cat') === cat);
+  });
+  if (grid) { grid.style.display = 'grid'; }
+  if (note) { note.style.display = 'block'; }
+  document.querySelectorAll('#menu-grid .menu-item').forEach(function(item) {
+    item.style.display = (item.getAttribute('data-cat') === cat) ? 'flex' : 'none';
+  });
+}
+
+document.getElementById('cat-btns').addEventListener('click', function(e) {
+  var btn = e.target.closest('.cat-btn');
+  if (!btn) return;
+  showCategory(btn.getAttribute('data-cat'));
+});
+
+reorderTabs();
+
+/* ── STATUS OUVERT / FERMÉ ───────────────────────── */
+var currentLang = 'fr';
 function updateStatus() {
   var now = new Date();
-  var day = now.getDay();          // 0=dim 1=lun 5=ven 6=sam
+  var day = now.getDay();   // 0=dim 1=lun 5=ven 6=sam
   var h   = now.getHours();
+
+  // Ven & Sam : ferme à 02h, sinon 01h
   var isFriSat  = (day === 5 || day === 6);
   var closeHour = isFriSat ? 2 : 1;
   var closeStr  = isFriSat ? '02h00' : '01h00';
-  var isOpen    = (h >= 12) || (h < closeHour);
+
+  // Ouvert si : 12h <= heure OU heure < closeHour (ex: 00h30 encore ouvert)
+  var isOpen = (h >= 12) || (h < closeHour);
 
   var dot = document.getElementById('status-dot');
   var lbl = document.getElementById('status-label');
   var tme = document.getElementById('closing-time');
 
   if (dot) dot.className = 'status-dot ' + (isOpen ? 'open' : 'closed');
+
   if (lbl) {
-    var ow = {fr:'Ouvert', en:'Open', ar:'مفتوح'};
-    var cw = {fr:'Fermé',  en:'Closed', ar:'مغلق'};
+    var ow = {fr:'Ouvert',  en:'Open',   ar:'مفتوح'};
+    var cw = {fr:'Fermé',   en:'Closed', ar:'مغلق'};
     lbl.textContent = isOpen ? ow[currentLang] : cw[currentLang];
   }
+
   if (tme) {
-    var closes = {fr:'Ferme à ', en:'Closes at ', ar:'يغلق '};
-    tme.textContent = (closes[currentLang] || 'Ferme à ') + closeStr;
+    if (isOpen) {
+      // Ouvert — affiche l'heure de fermeture
+      var closes = {fr:'Ferme à ', en:'Closes at ', ar:'يغلق '};
+      tme.textContent = (closes[currentLang] || 'Ferme à ') + closeStr;
+    } else {
+      // Fermé — affiche l'heure d'ouverture (toujours 12h00)
+      var opens = {fr:'Ouvre à 12h00', en:'Opens at 12:00', ar:'يفتح الساعة 12h00'};
+      tme.textContent = opens[currentLang] || 'Ouvre à 12h00';
+    }
   }
 }
 
-/* ── LIGHTBOX ───────────────────────────────────────── */
+/* ── LIGHTBOX ────────────────────────────────────── */
 var LB    = document.getElementById('lightbox');
 var LBimg = document.getElementById('lb-img');
 var LBcap = document.getElementById('lb-caption');
@@ -683,11 +782,9 @@ var GALLERY = [
   {id:'gl4', cap:'Poulpe grillé'},
   {id:'gl5', cap:'Pizza maison'}
 ];
-
 function openLightbox(i) {
   lbIdx = i;
-  var src = document.getElementById(GALLERY[i].id).src;
-  LBimg.src = src;
+  LBimg.src = document.getElementById(GALLERY[i].id).src;
   LBcap.textContent = GALLERY[i].cap;
   LB.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -709,38 +806,18 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'ArrowRight') lbNav(1);
 });
 
-/* ── MENU FILTER ────────────────────────────────────── */
-/* Filter menu — default: cocktails */
-function filterMenu(cat) {
-  document.querySelectorAll('.cat-btn').forEach(function(b) {
-    b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-  });
-  document.querySelectorAll('#menu-grid .menu-item').forEach(function(item) {
-    item.style.display = (item.getAttribute('data-cat') === cat) ? 'flex' : 'none';
-  });
-}
-document.getElementById('cat-btns').addEventListener('click', function(e) {
-  var btn = e.target.closest('.cat-btn');
-  if (!btn) return;
-  filterMenu(btn.getAttribute('data-cat'));
-});
-/* Show only cocktails on load */
-document.addEventListener('DOMContentLoaded', function() {
-  filterMenu('cocktails');
-});
-
-/* ── NAV SHRINK ─────────────────────────────────────── */
+/* ── NAV SHRINK ──────────────────────────────────── */
 var mainNav = document.getElementById('main-nav');
 window.addEventListener('scroll', function() {
   mainNav.style.padding = window.scrollY > 60 ? '0.6rem 2.5rem' : '1.1rem 2.5rem';
 }, {passive: true});
 
-/* ── I18N ───────────────────────────────────────────── */
+/* ── I18N ────────────────────────────────────────── */
 var T = {
 fr:{
   nav_about:'À propos',nav_menu:'Menu',nav_gallery:'Galerie',
   nav_reviews:'Avis',nav_social:'Réseaux',nav_contact:'Contact',nav_call:'Nous appeler',
-    hero_badge:'Agdal · Rabat, Maroc — Depuis 2020',hero_sub:'Saveurs du Monde',
+  hero_badge:'Agdal · Rabat, Maroc — Depuis 2020',hero_sub:'Saveurs du Monde',
   hero_desc:"Tapas espagnoles, saveurs méditerranéennes et influences internationales — dans une atmosphère tamisée et chaleureuse au cœur d'Agdal.",
   hero_cta1:'Voir le menu',hero_cta2:'Horaires &amp; adresse →',
   stat_rating:'Note Google',stat_reviews:'Avis clients',stat_followers:'Followers Insta',
@@ -755,9 +832,7 @@ fr:{
   pill_es:'🇪🇸 Espagnol',pill_ma:'🇲🇦 Marocain',pill_it:'🇮🇹 Italien',pill_as:'🌊 Méditerranéen',
   menu_tag:'La carte',menu_title:'Notre <em>Menu</em> Complet',
   menu_note:'★ Best Seller · NEW = nouveauté · Prix en dirhams TTC',
-    menu_desc:'109 plats &amp; boissons — cocktails, tapas, grillades, desserts et bien plus.',
-    menu_open:'Voir la carte complète →',
-  cat_all:'Tout',cat_cocktails:'Cocktails',cat_boissons:'Boissons &amp; Mocktails',
+  cat_cocktails:'Cocktails',cat_boissons:'Boissons &amp; Mocktails',
   cat_formules:'Formules Lunch',cat_crus:'Les Crus',cat_salades:'Salades',
   cat_bruschettas:'Bruschettas',cat_fritures:'Fritures',cat_aufour:'Au Four',
   cat_plats:'Poêlées &amp; Mijotés',cat_grillades:'Planchas &amp; Grillades',
@@ -783,7 +858,7 @@ fr:{
 en:{
   nav_about:'About',nav_menu:'Menu',nav_gallery:'Gallery',
   nav_reviews:'Reviews',nav_social:'Social',nav_contact:'Contact',nav_call:'Call us',
-    hero_badge:'Agdal · Rabat, Morocco — Since 2020',hero_sub:'World Flavors',
+  hero_badge:'Agdal · Rabat, Morocco — Since 2020',hero_sub:'World Flavors',
   hero_desc:'Spanish tapas, Mediterranean flavors and international influences — in a warm, intimate atmosphere in the heart of Agdal.',
   hero_cta1:'See the menu',hero_cta2:'Hours &amp; address →',
   stat_rating:'Google Rating',stat_reviews:'Reviews',stat_followers:'Insta followers',
@@ -798,9 +873,7 @@ en:{
   pill_es:'🇪🇸 Spanish',pill_ma:'🇲🇦 Moroccan',pill_it:'🇮🇹 Italian',pill_as:'🌊 Mediterranean',
   menu_tag:'Menu',menu_title:'Our Complete <em>Menu</em>',
   menu_note:'★ Best Seller · NEW = new item · All prices in Moroccan dirhams',
-    menu_desc:'109 dishes &amp; drinks — cocktails, tapas, grills, desserts and more.',
-    menu_open:'View full menu →',
-  cat_all:'All',cat_cocktails:'Cocktails',cat_boissons:'Drinks &amp; Mocktails',
+  cat_cocktails:'Cocktails',cat_boissons:'Drinks &amp; Mocktails',
   cat_formules:'Set menus',cat_crus:'Raw starters',cat_salades:'Salads',
   cat_bruschettas:'Bruschettas',cat_fritures:'Fritters',cat_aufour:'Baked',
   cat_plats:'Pan &amp; Stewed',cat_grillades:'Grill &amp; Plancha',
@@ -826,7 +899,7 @@ en:{
 ar:{
   nav_about:'عن المطعم',nav_menu:'القائمة',nav_gallery:'معرض',
   nav_reviews:'آراء',nav_social:'التواصل',nav_contact:'اتصل',nav_call:'اتصل بنا',
-    hero_badge:'أكدال · الرباط، المغرب — منذ 2020',hero_sub:'نكهات العالم',
+  hero_badge:'أكدال · الرباط، المغرب — منذ 2020',hero_sub:'نكهات العالم',
   hero_desc:'تاباس إسبانية، نكهات متوسطية وتأثيرات دولية — في أجواء دافئة في قلب أكدال.',
   hero_cta1:'عرض القائمة',hero_cta2:'المواعيد والعنوان ←',
   stat_rating:'تقييم جوجل',stat_reviews:'آراء',stat_followers:'متابعو إنستغرام',
@@ -841,7 +914,7 @@ ar:{
   pill_es:'🇪🇸 إسبانية',pill_ma:'🇲🇦 مغربية',pill_it:'🇮🇹 إيطالية',pill_as:'🌊 متوسطية',
   menu_tag:'قائمتنا',menu_title:'القائمة <em>الكاملة</em>',
   menu_note:'★ Best Sellers · NEW : جديد · الأسعار بالدرهم المغربي',
-  cat_all:'الكل',cat_cocktails:'كوكتيلات',cat_boissons:'مشروبات وموكتيل',
+  cat_cocktails:'كوكتيلات',cat_boissons:'مشروبات وموكتيل',
   cat_formules:'وجبات كاملة',cat_crus:'مقبلات طازجة',cat_salades:'سلطات',
   cat_bruschettas:'برسكتا',cat_fritures:'مقليات',cat_aufour:'أطباق الفرن',
   cat_plats:'أطباق مطهية',cat_grillades:'مشويات',
@@ -881,14 +954,14 @@ function applyLang(lang) {
   updateStatus();
 }
 
-/* ── ATTACH LANG BUTTONS ─ */
+/* ── ATTACH LANG BUTTONS ─────────────────────────── */
 document.querySelectorAll('.lang-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     applyLang(this.getAttribute('data-lang'));
   });
 });
 
-/* ── INIT ───────────────────────────────────────── */
+/* ── INIT ─────────────────────────────────── */
 updateStatus();
 setInterval(updateStatus,30000);
 </script>
